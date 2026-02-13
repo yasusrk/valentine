@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Bubu 💖</title>
+
+<style>
+body{
+    margin:0;
+    background:linear-gradient(135deg,#ff4e8a,#ff99cc);
+    font-family:Arial, sans-serif;
+    text-align:center;
+    overflow:hidden;
+    color:white;
+}
+
+.container{
+    margin-top:30vh;
+}
+
+h1{
+    font-size:22px;
+    font-weight:bold;
+}
+
+button{
+    padding:10px 20px;
+    margin:10px;
+    border:none;
+    border-radius:30px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#yes{ background:#00ff99; }
+#no{ background:#ff0033; }
+
+#gifBox{
+    margin-top:20px;
+}
+
+#gifBox img{
+    width:170px;
+}
+
+#final{
+    display:none;
+    margin-top:20vh;
+    font-size:26px;
+    font-weight:bold;
+    animation:pop 0.6s ease;
+}
+
+#final img{
+    width:220px;
+    margin-top:20px;
+}
+
+@keyframes pop{
+    from{transform:scale(0.5); opacity:0;}
+    to{transform:scale(1); opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" src="Perfect.mp3" loop></audio>
+
+<div class="container" id="main">
+    <h1>Will You Be Mine? 💖</h1>
+    <button id="yes">YES</button>
+    <button id="no">NO</button>
+    <div id="gifBox"></div>
+</div>
+
+<div id="final">
+    I know you Bubu, You love me so much 💖<br>
+    <img src="kiss.gif">
+</div>
+
+<script>
+
+let noBtn=document.getElementById("no");
+let yesBtn=document.getElementById("yes");
+let gifBox=document.getElementById("gifBox");
+let main=document.getElementById("main");
+let final=document.getElementById("final");
+let music=document.getElementById("bgMusic");
+
+let noClickCount=0;
+let yesScale=1;
+
+/* Start music on first interaction (mobile safe) */
+document.body.addEventListener("click", function(){
+    music.play();
+}, { once:true });
+
+noBtn.addEventListener("click", function(){
+
+    noClickCount++;
+
+    yesScale += 0.1;
+    yesBtn.style.transform="scale("+yesScale+")";
+
+    if(noClickCount===1){
+        gifBox.innerHTML='<img src="dudu-surprise.gif">';
+    }
+    else if(noClickCount===2){
+        gifBox.innerHTML='<img src="dudu-wearing-glasses-standing.gif">';
+    }
+    else if(noClickCount===3){
+        gifBox.innerHTML='<img src="hi.gif">';
+    }
+    else if(noClickCount===4){
+        gifBox.innerHTML='<img src="cry.gif">';
+    }
+    else if(noClickCount>=5){
+        gifBox.innerHTML='<img src="cry2.gif">';
+    }
+
+});
+
+yesBtn.addEventListener("click", function(){
+    main.style.display="none";
+    final.style.display="block";
+});
+
+</script>
+
+</body>
+</html>
