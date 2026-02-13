@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Bubu 💖</title>
+<title>Valentine Site 💖</title>
 
 <style>
 body{
@@ -10,21 +10,15 @@ body{
     background:linear-gradient(135deg,#ff4e8a,#ff99cc);
     font-family:Arial, sans-serif;
     text-align:center;
-    overflow:hidden;
     color:white;
 }
 
 .container{
-    margin-top:30vh;
-}
-
-h1{
-    font-size:22px;
-    font-weight:bold;
+    margin-top:25vh;
 }
 
 button{
-    padding:10px 20px;
+    padding:12px 22px;
     margin:10px;
     border:none;
     border-radius:30px;
@@ -37,12 +31,9 @@ button{
 #yes{ background:#00ff99; }
 #no{ background:#ff0033; }
 
-#gifBox{
-    margin-top:20px;
-}
-
 #gifBox img{
     width:170px;
+    margin-top:20px;
 }
 
 #final{
@@ -50,17 +41,6 @@ button{
     margin-top:20vh;
     font-size:26px;
     font-weight:bold;
-    animation:pop 0.6s ease;
-}
-
-#final img{
-    width:220px;
-    margin-top:20px;
-}
-
-@keyframes pop{
-    from{transform:scale(0.5); opacity:0;}
-    to{transform:scale(1); opacity:1;}
 }
 </style>
 </head>
@@ -82,7 +62,6 @@ button{
 </div>
 
 <script>
-
 let noBtn=document.getElementById("no");
 let yesBtn=document.getElementById("yes");
 let gifBox=document.getElementById("gifBox");
@@ -93,15 +72,12 @@ let music=document.getElementById("bgMusic");
 let noClickCount=0;
 let yesScale=1;
 
-/* Start music on first interaction (mobile safe) */
 document.body.addEventListener("click", function(){
     music.play();
 }, { once:true });
 
 noBtn.addEventListener("click", function(){
-
     noClickCount++;
-
     yesScale += 0.1;
     yesBtn.style.transform="scale("+yesScale+")";
 
@@ -117,17 +93,15 @@ noBtn.addEventListener("click", function(){
     else if(noClickCount===4){
         gifBox.innerHTML='<img src="cry.gif">';
     }
-    else if(noClickCount>=5){
+    else{
         gifBox.innerHTML='<img src="cry2.gif">';
     }
-
 });
 
 yesBtn.addEventListener("click", function(){
     main.style.display="none";
     final.style.display="block";
 });
-
 </script>
 
 </body>
